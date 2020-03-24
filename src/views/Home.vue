@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap">
+  <div class="flex flex-wrap" v-if="covidCases.ready">
     <div class="w-full">
       <h1 class="text-xl md:text-4xl text-center">Worldwide COVID-19 Cases (WIP)</h1>
     </div>
@@ -43,6 +43,7 @@ export default {
   data() {
     return {
       covidCases: {
+        ready: false,
         cases: 0,
         deaths: 0,
         recovered: 0,
@@ -59,6 +60,7 @@ export default {
         const { data } = await allCases();
 
         Object.assign(this.covidCases, data);
+        this.covidCases.ready = true;
       } catch (error) {
         console.error(error);
       }

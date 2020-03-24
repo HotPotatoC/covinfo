@@ -12,7 +12,8 @@ Vue.use(VueMoment)
 
 import VueAnalytics from 'vue-analytics'
 Vue.use(VueAnalytics, {
-  id: process.env.VUE_APP_GA_TRACKING_ID || ''
+  id: 'UA-161403793-1',
+  checkDuplicatedScript: true
 })
 
 Vue.config.productionTip = false
