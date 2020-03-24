@@ -1,5 +1,4 @@
 const webpack = require("webpack");
-const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
   publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
@@ -20,6 +19,6 @@ module.exports = {
   },
   css: {
     // Enable CSS source maps.
-    sourceMap: !isProduction
+    sourceMap: process.env.NODE_ENV !== 'production'
   }
 };
