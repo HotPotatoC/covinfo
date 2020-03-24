@@ -1,0 +1,79 @@
+$primary: #00C853;
+$warning: #ECC94B;
+$danger: #E53E3E;
+
+$primary-light: #B9F6CA;
+$warning-light: #FEFCBF;
+$danger-light: #FEB2B2;
+
+.text-primary {
+    color: $primary;
+}
+
+.text-warning {
+    color: $warning;
+}
+
+.text-danger {
+    color: $danger
+}
+
+.text-primary-light {
+    color: $primary-light;
+}
+
+.text-warning-light {
+    color: $warning-light;
+}
+
+.text-danger-light {
+    color: $danger-light;
+}
+
+.bg-primary {
+    background-color: $primary;
+}
+
+.bg-warning {
+    background-color: $warning;
+}
+
+.bg-danger {
+    background-color: $danger;
+}
+
+.bg-primary-light {
+    background-color: $primary-light;
+}
+
+.bg-warning-light {
+    background-color: $warning-light;
+}
+
+.bg-danger-light {
+    background-color: $danger-light;
+}
+
+.border-primary {
+    border-color: $primary;
+}
+
+.border-warning {
+    border-color: $warning;
+}
+
+.border-danger {
+    border-color: $danger;
+}
+
+.border-primary-light {
+    border-color: $primary-light;
+}
+
+.border-warning-light {
+    border-color: $warning-light;
+}
+
+.border-danger-light {
+    border-color: $danger-light;
+}
