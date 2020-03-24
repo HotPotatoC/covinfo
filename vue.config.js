@@ -1,7 +1,7 @@
 const webpack = require("webpack");
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
+  publicPath: '',
   configureWebpack: {
     // Set up all the aliases we use in our app.
     plugins: [
@@ -18,7 +18,6 @@ module.exports = {
     appleMobileWebAppStatusBarStyle: "#0b091b"
   },
   css: {
-    // Enable CSS source maps.
-    sourceMap: process.env.NODE_ENV !== 'production'
+    sourceMap: true
   }
 };

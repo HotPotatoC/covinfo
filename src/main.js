@@ -12,6 +12,7 @@ import VueMoment from 'vue-moment'
 Vue.use(VueMoment)
 
 import VueAnalytics from 'vue-analytics'
+import './registerServiceWorker'
 Vue.use(VueAnalytics, {
   id: 'UA-161403793-1',
   checkDuplicatedScript: true
