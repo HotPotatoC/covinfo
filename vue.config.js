@@ -3,17 +3,15 @@ const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
   publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
-  plugins: [
-    [
-      "@vuepress/google-analytics",
-      {
-        ga: "UA-161403793-1"
-      }
-    ]
-  ],
   configureWebpack: {
     // Set up all the aliases we use in our app.
     plugins: [
+      [
+        "@vuepress/google-analytics",
+        {
+          ga: "UA-161403793-1"
+        }
+      ],
       new webpack.optimize.LimitChunkCountPlugin({
         maxChunks: 6
       })
