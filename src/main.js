@@ -12,7 +12,7 @@ Vue.use(VueMoment)
 
 import VueAnalytics from 'vue-analytics'
 Vue.use(VueAnalytics, {
-  id: process.env.GA_TRACKING_ID || ''
+  id: process.env.VUE_APP_GA_TRACKING_ID || ''
 })
 
 Vue.config.productionTip = false
