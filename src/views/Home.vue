@@ -59,7 +59,6 @@ export default {
         const { data } = await allCases();
 
         Object.assign(this.covidCases, data);
-        console.log(data);
       } catch (error) {
         console.error(error);
       }

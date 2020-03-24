@@ -6,12 +6,6 @@ module.exports = {
   configureWebpack: {
     // Set up all the aliases we use in our app.
     plugins: [
-      [
-        "@vuepress/google-analytics",
-        {
-          ga: "UA-161403793-1"
-        }
-      ],
       new webpack.optimize.LimitChunkCountPlugin({
         maxChunks: 6
       })

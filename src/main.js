@@ -10,6 +10,11 @@ Vue.use(GlobalComponents)
 import VueMoment from 'vue-moment'
 Vue.use(VueMoment)
 
+import VueAnalytics from 'vue-analytics'
+Vue.use(VueAnalytics, {
+  id: process.env.GA_TRACKING_ID || ''
+})
+
 Vue.config.productionTip = false
 
 new Vue({

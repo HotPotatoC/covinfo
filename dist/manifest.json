@@ -1,0 +1,8 @@
+{
+  "name": "Covinfo",
+  "short_name": "Covinfo",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f7fafc",
+  "theme_color": "#00C853"
+}

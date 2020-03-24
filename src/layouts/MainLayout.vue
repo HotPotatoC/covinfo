@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       nav: {
-        links: [{ label: "About", to: "/about" }]
+        links: [{ label: "About", to: "/" }]
       }
     };
   }
