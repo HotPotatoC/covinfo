@@ -1,8 +1,8 @@
 <template>
   <header class="lg:px-16 px-6 bg-white lg:py-0 py-2 shadow-xl">
     <div class="container mx-auto">
-      <div class="flex flex-wrap">
-        <div class="flex-1 flex justify-between items-center">
+      <div class="flex flex-wrap justify-between items-center">
+        <div class="flex-1 flex">
           <router-link to="/" class="font-gilroy text-2xl">
             cov<span class="text-primary">info</span>
           </router-link>

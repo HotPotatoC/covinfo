@@ -1,42 +1,89 @@
 <template>
-  <div class="flex flex-wrap" v-if="covidCases.ready">
+  <div class="flex flex-wrap">
     <div class="w-full">
       <h1 class="text-xl md:text-4xl text-center">Worldwide COVID-19 Cases (WIP)</h1>
     </div>
-    <div class="w-full mb-12">
+    <div class="w-full mb-12" v-if="covidCases.ready">
       <p
         class="text-center text-gray-600"
       >Last updated: {{covidCases.updated | moment("dddd, MMMM Do YYYY, h:mm:ss a")}}</p>
     </div>
     <div class="w-full xl:w-1/3">
-      <base-card type="danger-light" outline-type="danger">
-        <div class="font-bold font-gilroy text-gray-600 uppercase text-xl mb-2">Total Cases</div>
-        <div class="font-bold font-lato text-gray-800 mb-2">
+      <base-card type="warning-light" outline-type="warning">
+        <div class="font-bold font-gilroy text-gray-700 uppercase text-xl mb-2">Total Cases</div>
+        <div class="font-bold font-lato text-gray-800 mb-2" v-if="covidCases.ready">
           <span class="text-2xl md:text-6xl">{{covidCases.cases.toLocaleString()}}</span>
         </div>
       </base-card>
     </div>
     <div class="w-full xl:w-1/3">
       <base-card type="primary-light" outline-type="primary">
-        <div class="font-bold font-gilroy text-gray-600 uppercase text-xl mb-2">Total Recovery</div>
-        <div class="font-bold font-lato text-gray-800 mb-2">
+        <div class="font-bold font-gilroy text-gray-700 uppercase text-xl mb-2">Recovered</div>
+        <div class="font-bold font-lato text-gray-800 mb-2" v-if="covidCases.ready">
           <span class="text-2xl md:text-6xl">{{covidCases.recovered.toLocaleString()}}</span>
         </div>
       </base-card>
     </div>
     <div class="w-full xl:w-1/3">
-      <base-card type="warning-light" outline-type="warning">
-        <div class="font-bold font-gilroy text-gray-600 uppercase text-xl mb-2">Total Deaths</div>
-        <div class="font-bold font-lato text-gray-800 mb-2">
+      <base-card type="gray-400" outline-type="gray-600">
+        <div class="font-bold font-gilroy text-gray-700 uppercase text-xl mb-2">Deaths</div>
+        <div class="font-bold font-lato text-gray-800 mb-2" v-if="covidCases.ready">
           <span class="text-2xl md:text-6xl">{{covidCases.deaths.toLocaleString()}}</span>
         </div>
+      </base-card>
+    </div>
+    <div class="w-full text-center">#stayhome</div>
+    <div class="w-full flex justify-center">
+      <base-card class="overflow-x-auto h-screen">
+        <table class="min-w-full leading-normal">
+          <thead>
+            <tr>
+              <th class="sticky top-0 px-4 py-3 bg-white">Country</th>
+              <th class="sticky top-0 px-4 py-3 bg-white">Total Cases</th>
+              <th class="sticky top-0 px-4 py-3 bg-white">Active Cases</th>
+              <th class="sticky top-0 px-4 py-3 bg-white">New Cases Today</th>
+              <th class="sticky top-0 px-4 py-3 bg-white">Total Deaths</th>
+              <th class="sticky top-0 px-4 py-3 bg-white">New Deaths</th>
+              <th class="sticky top-0 px-4 py-3 bg-white">Total Recovered</th>
+              <th class="sticky top-0 px-4 py-3 bg-white">Total Critical</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(row, index) in countriesData" :key="index" class="hover:bg-gray-200">
+              <td class="border-b px-4 py-2 border-r">
+                <router-link
+                  exact
+                  :to="row.country.toLowerCase()"
+                  class="text-blue-700"
+                >{{ row.country }}</router-link>
+              </td>
+              <td class="border-b px-4 py-2">{{ row.cases.toLocaleString() }}</td>
+              <td class="border-b px-4 py-2">{{ row.active.toLocaleString() }}</td>
+
+              <td
+                class="border-b px-4 py-2"
+                :class="{' bg-warning-light': row.todayCases > 0}"
+              >{{ row.todayCases.toLocaleString() }}</td>
+
+              <td class="border-b px-4 py-2">{{ row.deaths.toLocaleString() }}</td>
+
+              <td
+                class="border-b px-4 py-2"
+                :class="{'bg-danger-light': row.todayDeaths > 0}"
+              >{{ row.todayDeaths.toLocaleString() }}</td>
+
+              <td class="border-b px-4 py-2 text-primary">{{ row.recovered.toLocaleString() }}</td>
+              <td class="border-b px-4 py-2 text-danger">{{ row.critical.toLocaleString() }}</td>
+            </tr>
+          </tbody>
+        </table>
       </base-card>
     </div>
   </div>
 </template>
 
 <script>
-import { allCases } from "../services/covid";
+import { allCases, allCountries } from "../services/covid";
 
 export default {
   name: "Home",
@@ -48,19 +95,30 @@ export default {
         deaths: 0,
         recovered: 0,
         updated: 0
-      }
+      },
+      countriesData: []
     };
   },
   async created() {
     await this.getAllCases();
+    await this.getAllCountries();
   },
   methods: {
     async getAllCases() {
       try {
         const { data } = await allCases();
 
-        Object.assign(this.covidCases, data);
+        this.covidCases = data;
         this.covidCases.ready = true;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async getAllCountries() {
+      try {
+        const { data } = await allCountries();
+
+        this.countriesData = data;
       } catch (error) {
         console.error(error);
       }

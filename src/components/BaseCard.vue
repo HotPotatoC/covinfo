@@ -2,7 +2,7 @@
   <div
     :class="[type ? `bg-${type}` : 'bg-white',
     outlineType ? `border-${outlineType} border` : 'border-0']"
-    class="rounded-lg overflow-hidden shadow-lg m-5"
+    class="rounded-lg shadow-lg m-5"
   >
     <div v-if="img">
       <img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains" />
