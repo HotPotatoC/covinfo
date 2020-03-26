@@ -37,7 +37,7 @@
         </div>
         <div class="flex justify-between border-b mb-12">
           <span>Today Deaths</span>
-          <span :class="{'text-danger': countryData.todayDeaths > 0}">{{ countryData.todayCases }}</span>
+          <span :class="{'text-danger': countryData.todayDeaths > 0}">{{ countryData.todayDeaths }}</span>
         </div>
         <div class="flex justify-between border-b mb-12">
           <span>Total Recovered</span>
@@ -123,23 +123,18 @@ export default {
       ];
     },
     countryHistoricalData: function(val) {
-      let caseTimeline = [];
-      let cases = [];
       for (let timeline in val.timeline.cases) {
-        caseTimeline.push(timeline);
-        cases.push(val.timeline.cases[timeline]);
+        this.lineDemographic.chartData.labels.push(timeline);
+        this.lineDemographic.chartData.datasets[0].data.push(
+          val.timeline.cases[timeline]
+        );
       }
 
-      let deathTimeline = [];
-      let deaths = [];
       for (let timeline in val.timeline.deaths) {
-        deathTimeline.push(timeline);
-        deaths.push(val.timeline.deaths[timeline]);
+        this.lineDemographic.chartData.datasets[1].data.push(
+          val.timeline.deaths[timeline]
+        );
       }
-
-      this.lineDemographic.chartData.labels = caseTimeline;
-      this.lineDemographic.chartData.datasets[0].data = cases;
-      this.lineDemographic.chartData.datasets[1].data = deaths;
     }
   },
   async created() {
