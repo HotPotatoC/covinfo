@@ -2,7 +2,7 @@
   <div class="flex flex-wrap mt-12">
     <div v-if="ready" class="w-full">
       <router-link
-        :to="country.country.toLowerCase()"
+        :to="'/country/' + country.country.toLowerCase()"
         v-for="(country, index) in countries"
         :key="index"
       >
@@ -13,6 +13,10 @@
           </div>
         </base-card>
       </router-link>
+    </div>
+    <div class="mx-auto text-center mb-64" v-else>
+      <base-loading></base-loading>
+      <p>Fetching countries...</p>
     </div>
   </div>
 </template>

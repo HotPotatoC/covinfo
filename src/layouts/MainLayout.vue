@@ -4,7 +4,9 @@
     <div class="container mx-auto antialiased">
       <div class="main-content font-aileron">
         <div class="w-full">
-          <router-view></router-view>
+          <fade-transition :duration="200" origin="center top" mode="out-in">
+            <router-view />
+          </fade-transition>
         </div>
         <content-footer></content-footer>
       </div>
@@ -13,6 +15,8 @@
 </template>
 
 <script>
+import { FadeTransition } from "vue2-transitions";
+
 import Navbar from "@/components/Navbar/Navbar";
 import ContentFooter from "@/layouts/ContentFooter";
 
@@ -20,7 +24,8 @@ export default {
   name: "MainLayout",
   components: {
     Navbar,
-    ContentFooter
+    ContentFooter,
+    FadeTransition
   },
   data() {
     return {

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MainLayout from '../layouts/MainLayout.vue'
-import AlternativeLayout from '../layouts/AlternativeLayout.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +22,11 @@ const router = new VueRouter({
           component: () => import('../views/Home.vue')
         },
         {
+          path: '/about',
+          name: 'About Page',
+          component: () => import('../views/About')
+        },
+        {
           path: '/countries',
           name: 'Countries',
           component: () => import('../views/Countries.vue')
@@ -37,17 +41,6 @@ const router = new VueRouter({
           name: 'Country Info',
           props: true,
           component: () => import('../views/Country.vue')
-        }
-      ]
-    },
-    {
-      path: "/",
-      component: AlternativeLayout,
-      children: [
-        {
-          path: '/about',
-          name: 'About Page',
-          component: () => import('../views/About')
         }
       ]
     }

@@ -1,57 +1,62 @@
 <template>
-  <div class="flex flex-wrap mt-12">
-    <div class="w-full">
-      <h1 class="text-4xl font-gilroy">{{upperFirst(country)}} COVID-19 Demographics</h1>
+  <div>
+    <h1 class="text-4xl font-gilroy mt-12">{{upperFirst(country)}} COVID-19 Demographics</h1>
+    <div class="flex flex-wrap" v-if="ready">
+      <div class="w-full md:w-1/2">
+        <base-card>
+          <pie-chart :chart-data="pieDemographic.chartData" :options="pieDemographic.options"></pie-chart>
+        </base-card>
+      </div>
+      <div class="w-full md:w-1/2">
+        <base-card>
+          <line-chart :chart-data="lineDemographic.chartData" :options="lineDemographic.options"></line-chart>
+        </base-card>
+      </div>
+      <div class="w-full">
+        <base-card class="p-5 overflow-hidden">
+          <div class="md:flex md:justify-between md:items-center mb-12">
+            <h1 class="text-4xl font-gilroy mb-4">{{upperFirst(country)}}</h1>
+            <img :src="countryData.countryInfo.flag" class="shadow-lg" alt />
+          </div>
+          <div class="flex justify-between border-b mb-12">
+            <span>Total Cases</span>
+            <span>{{ countryData.cases }}</span>
+          </div>
+          <div class="flex justify-between border-b mb-12">
+            <span>Active Cases</span>
+            <span>{{ countryData.active }}</span>
+          </div>
+          <div class="flex justify-between border-b mb-12">
+            <span>Today Cases</span>
+            <span :class="{'text-warning': countryData.todayCases > 0}">{{ countryData.todayCases }}</span>
+          </div>
+          <div class="flex justify-between border-b mb-12">
+            <span>Total Deaths</span>
+            <span>{{ countryData.deaths }}</span>
+          </div>
+          <div class="flex justify-between border-b mb-12">
+            <span>Today Deaths</span>
+            <span
+              :class="{'text-danger': countryData.todayDeaths > 0}"
+            >{{ countryData.todayDeaths }}</span>
+          </div>
+          <div class="flex justify-between border-b mb-12">
+            <span>Total Recovered</span>
+            <span>{{ countryData.recovered }}</span>
+          </div>
+          <div class="flex justify-between border-b mb-12">
+            <span>Critical Condition</span>
+            <span>{{ countryData.critical }}</span>
+          </div>
+          <div class="flex justify-between border-b">
+            <span>Cases Per 1 million</span>
+            <span>{{ countryData.casesPerOneMillion }}</span>
+          </div>
+        </base-card>
+      </div>
     </div>
-    <div class="w-full md:w-1/2">
-      <base-card v-if="ready">
-        <pie-chart :chart-data="pieDemographic.chartData" :options="pieDemographic.options"></pie-chart>
-      </base-card>
-    </div>
-    <div class="w-full md:w-1/2">
-      <base-card v-if="ready">
-        <line-chart :chart-data="lineDemographic.chartData" :options="lineDemographic.options"></line-chart>
-      </base-card>
-    </div>
-    <div class="w-full">
-      <base-card class="p-5 overflow-hidden" v-if="ready">
-        <div class="md:flex md:justify-between md:items-center mb-12">
-          <h1 class="text-4xl font-gilroy mb-4">{{upperFirst(country)}}</h1>
-          <img :src="countryData.countryInfo.flag" class="shadow-lg" alt />
-        </div>
-        <div class="flex justify-between border-b mb-12">
-          <span>Total Cases</span>
-          <span>{{ countryData.cases }}</span>
-        </div>
-        <div class="flex justify-between border-b mb-12">
-          <span>Active Cases</span>
-          <span>{{ countryData.active }}</span>
-        </div>
-        <div class="flex justify-between border-b mb-12">
-          <span>Today Cases</span>
-          <span :class="{'text-warning': countryData.todayCases > 0}">{{ countryData.todayCases }}</span>
-        </div>
-        <div class="flex justify-between border-b mb-12">
-          <span>Total Deaths</span>
-          <span>{{ countryData.deaths }}</span>
-        </div>
-        <div class="flex justify-between border-b mb-12">
-          <span>Today Deaths</span>
-          <span :class="{'text-danger': countryData.todayDeaths > 0}">{{ countryData.todayDeaths }}</span>
-        </div>
-        <div class="flex justify-between border-b mb-12">
-          <span>Total Recovered</span>
-          <span>{{ countryData.recovered }}</span>
-        </div>
-        <div class="flex justify-between border-b mb-12">
-          <span>Critical Condition</span>
-          <span>{{ countryData.critical }}</span>
-        </div>
-        <div class="flex justify-between border-b">
-          <span>Cases Per 1 million</span>
-          <span>{{ countryData.casesPerOneMillion }}</span>
-        </div>
-      </base-card>
+    <div class="mx-auto text-center mb-64" v-else>
+      <base-loading></base-loading>
     </div>
   </div>
 </template>

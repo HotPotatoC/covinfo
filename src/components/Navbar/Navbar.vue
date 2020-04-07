@@ -67,6 +67,8 @@ export default {
 <style lang="scss" scoped>
 .hamburger {
   transform: scale(0.6);
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
 }
 .rounded-bottom {
   border-bottom-right-radius: 1.5rem;

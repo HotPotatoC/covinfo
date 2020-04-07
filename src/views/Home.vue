@@ -14,6 +14,9 @@
         <div class="font-bold font-aileron text-gray-800 mb-2" v-if="covidCases.ready">
           <span class="text-2xl md:text-6xl">{{covidCases.cases.toLocaleString()}}</span>
         </div>
+        <div class="font-bold font-aileron text-gray-800 mb-2" v-else>
+          <base-loading></base-loading>
+        </div>
       </base-card>
     </div>
     <div class="w-full xl:w-1/3">
@@ -21,6 +24,9 @@
         <div class="font-bold font-gilroy text-gray-700 uppercase text-xl mb-2">Recovered</div>
         <div class="font-bold font-aileron text-gray-800 mb-2" v-if="covidCases.ready">
           <span class="text-2xl md:text-6xl">{{covidCases.recovered.toLocaleString()}}</span>
+        </div>
+        <div class="font-bold font-aileron text-gray-800 mb-2" v-else>
+          <base-loading></base-loading>
         </div>
       </base-card>
     </div>
@@ -30,12 +36,15 @@
         <div class="font-bold font-aileron text-gray-800 mb-2" v-if="covidCases.ready">
           <span class="text-2xl md:text-6xl">{{covidCases.deaths.toLocaleString()}}</span>
         </div>
+        <div class="font-bold font-aileron text-gray-800 mb-2" v-else>
+          <base-loading></base-loading>
+        </div>
       </base-card>
     </div>
     <div class="w-full text-center">#stayhome</div>
     <div class="w-full flex justify-center">
-      <base-card class="overflow-x-auto h-screen">
-        <table class="min-w-full leading-normal">
+      <base-card class="w-full overflow-x-auto h-screen">
+        <table class="min-w-full leading-normal" v-if="covidCases.ready">
           <thead>
             <tr>
               <th class="sticky top-0 px-4 py-3 bg-white">Country</th>
@@ -77,6 +86,9 @@
             </tr>
           </tbody>
         </table>
+        <div class="min-w-full flex justify-center" v-else>
+          <base-loading></base-loading>
+        </div>
       </base-card>
     </div>
   </div>
