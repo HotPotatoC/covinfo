@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap">
+  <div class="flex flex-wrap mt-12">
     <div v-if="ready" class="w-full">
       <router-link
         :to="country.country.toLowerCase()"
@@ -9,7 +9,7 @@
         <base-card class="country-card hover:bg-gray-100 hover:shadow-2xl">
           <div class="block md:flex md:justify-between">
             <h1 class="font-gilroy text-2xl text-primary">{{ country.country }}</h1>
-            <img :src="country.countryInfo.flag" class="shadow-xl" alt />
+            <img v-lazy="country.countryInfo.flag" class="shadow-xl" alt />
           </div>
         </base-card>
       </router-link>

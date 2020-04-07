@@ -1,10 +1,14 @@
 @import '../mixins/_font.scss';
 @include font-face(GilroyExtraBold, '~@/assets/font/gilroy-extrabold');
+@font-face {
+    font-family: AileronRegular;
+    src: url("~@/assets/font/Aileron-Regular.otf") format("opentype");
+}
 
 .font-gilroy {
     font-family: GilroyExtraBold, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.font-lato {
-    font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.font-aileron {
+    font-family: AileronRegular, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

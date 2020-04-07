@@ -10,6 +10,13 @@ Vue.use(GlobalComponents)
 // Third-party libraries
 import VueMoment from 'vue-moment'
 Vue.use(VueMoment)
+// Map Component
+import VueLayers from 'vuelayers'
+import 'vuelayers/lib/style.css'
+Vue.use(VueLayers)
+
+import VueLazyLoad from 'vue-lazyload'
+Vue.use(VueLazyLoad)
 
 Vue.config.productionTip = false
 

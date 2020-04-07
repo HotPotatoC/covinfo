@@ -1,35 +1,30 @@
 <template>
-  <header class="lg:px-16 px-6 bg-white lg:py-0 py-2 shadow-xl">
+  <header
+    :class="{'rounded-bottom shadow-xl bg-white': isOpened}"
+    class="lg:px-16 px-6 lg:py-2 py-0"
+  >
     <div class="container mx-auto">
       <div class="flex flex-wrap justify-between items-center">
         <div class="flex-1 flex">
           <router-link to="/" class="font-gilroy text-2xl">
-            cov<span class="text-primary">info</span>
+            <div class="flex">
+              cov
+              <span class="text-primary">info</span>
+            </div>
           </router-link>
         </div>
-
-        <label
-          for="menu-toggle"
-          class="cursor-pointer lg:hidden block"
-          @click="isOpened = !isOpened"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="feather feather-menu"
+        <div class="lg:hidden block">
+          <button
+            :class="{'is-active': isOpened}"
+            class="hamburger hamburger--squeeze"
+            type="button"
+            @click="isOpened = !isOpened"
           >
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-        </label>
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>
+        </div>
 
         <div
           :class="{hidden: !isOpened}"
@@ -37,13 +32,16 @@
           id="menu"
         >
           <nav>
-            <ul
-              class="lg:flex items-center justify-between text-base font-medium text-gray-600 pt-4 lg:pt-0"
-            >
+            <ul class="lg:flex items-center justify-between font-medium pt-4 lg:pt-0">
               <li v-for="(link, index) in links" :key="index">
-                <router-link class="lg:p-4 py-3 px-0 block" :to="link.to">{{
+                <router-link
+                  class="font-aileron lg:text-base tracking-tight text-xl lg:text-gray-800 py-4 px-6 block hover:text-green-500 rounded-lg"
+                  :to="link.to"
+                >
+                  {{
                   link.label
-                }}</router-link>
+                  }}
+                </router-link>
               </li>
             </ul>
           </nav>
@@ -66,4 +64,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.hamburger {
+  transform: scale(0.6);
+}
+.rounded-bottom {
+  border-bottom-right-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+</style>
+
+<style src="hamburgers/dist/hamburgers.css"></style>

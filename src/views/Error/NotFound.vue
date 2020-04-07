@@ -18,7 +18,7 @@
           <line x1="19" y1="12" x2="5" y2="12" />
           <polyline points="12 19 5 12 12 5" />
         </svg>
-        <router-link to="/home" class="text-2xl font-lato ml-4">Go Back</router-link>
+        <router-link to="/" class="text-2xl font-aileron ml-4">Go Back</router-link>
       </div>
     </div>
   </div>

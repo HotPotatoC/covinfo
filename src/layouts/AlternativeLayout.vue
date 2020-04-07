@@ -1,13 +1,11 @@
 <template>
   <div class="main-wrapper">
     <Navbar :links="nav.links" />
-    <div class="container mx-auto antialiased">
-      <div class="main-content font-aileron">
-        <div class="w-full">
-          <router-view></router-view>
-        </div>
-        <content-footer></content-footer>
+    <div class="main-content font-aileron">
+      <div class="w-full">
+        <router-view></router-view>
       </div>
+      <content-footer></content-footer>
     </div>
   </div>
 </template>

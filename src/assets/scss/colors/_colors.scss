@@ -6,6 +6,8 @@ $primary-light: #B9F6CA;
 $warning-light: #FEFCBF;
 $danger-light: #FEB2B2;
 
+$primary-dark: #1fbb60;
+
 .text-primary {
     color: $primary;
 }
@@ -52,6 +54,10 @@ $danger-light: #FEB2B2;
 
 .bg-danger-light {
     background-color: $danger-light;
+}
+
+.bg-primary-dark {
+    background-color: $primary-dark;
 }
 
 .border-primary {

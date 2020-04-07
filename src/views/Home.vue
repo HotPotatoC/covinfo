@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-wrap">
+  <div class="flex flex-wrap mt-12">
     <div class="w-full">
-      <h1 class="text-xl md:text-4xl text-center">Worldwide COVID-19 Cases (WIP)</h1>
+      <h1 class="font-gilroy text-xl md:text-4xl text-center">Worldwide COVID-19 Cases (WIP)</h1>
     </div>
     <div class="w-full mb-12" v-if="covidCases.ready">
       <p
@@ -11,7 +11,7 @@
     <div class="w-full xl:w-1/3">
       <base-card type="warning-light" outline-type="warning">
         <div class="font-bold font-gilroy text-gray-700 uppercase text-xl mb-2">Total Cases</div>
-        <div class="font-bold font-lato text-gray-800 mb-2" v-if="covidCases.ready">
+        <div class="font-bold font-aileron text-gray-800 mb-2" v-if="covidCases.ready">
           <span class="text-2xl md:text-6xl">{{covidCases.cases.toLocaleString()}}</span>
         </div>
       </base-card>
@@ -19,7 +19,7 @@
     <div class="w-full xl:w-1/3">
       <base-card type="primary-light" outline-type="primary">
         <div class="font-bold font-gilroy text-gray-700 uppercase text-xl mb-2">Recovered</div>
-        <div class="font-bold font-lato text-gray-800 mb-2" v-if="covidCases.ready">
+        <div class="font-bold font-aileron text-gray-800 mb-2" v-if="covidCases.ready">
           <span class="text-2xl md:text-6xl">{{covidCases.recovered.toLocaleString()}}</span>
         </div>
       </base-card>
@@ -27,7 +27,7 @@
     <div class="w-full xl:w-1/3">
       <base-card type="gray-400" outline-type="gray-600">
         <div class="font-bold font-gilroy text-gray-700 uppercase text-xl mb-2">Deaths</div>
-        <div class="font-bold font-lato text-gray-800 mb-2" v-if="covidCases.ready">
+        <div class="font-bold font-aileron text-gray-800 mb-2" v-if="covidCases.ready">
           <span class="text-2xl md:text-6xl">{{covidCases.deaths.toLocaleString()}}</span>
         </div>
       </base-card>
@@ -53,7 +53,7 @@
               <td class="border-b px-4 py-2 border-r">
                 <router-link
                   exact
-                  :to="row.country.toLowerCase()"
+                  :to="'/country/' + row.country.toLowerCase()"
                   class="text-blue-700"
                 >{{ row.country }}</router-link>
               </td>

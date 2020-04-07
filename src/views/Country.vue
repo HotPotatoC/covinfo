@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap">
+  <div class="flex flex-wrap mt-12">
     <div class="w-full">
       <h1 class="text-4xl font-gilroy">{{upperFirst(country)}} COVID-19 Demographics</h1>
     </div>
