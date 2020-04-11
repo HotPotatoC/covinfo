@@ -9,7 +9,7 @@
         <base-card class="country-card hover:bg-gray-100 hover:shadow-2xl">
           <div class="block md:flex md:justify-between">
             <h1 class="font-gilroy text-2xl text-primary">{{ country.country }}</h1>
-            <img v-lazy="country.countryInfo.flag" class="shadow-xl" alt />
+            <img v-lazy="country.countryInfo.flag" class="shadow-xl rounded-lg" alt />
           </div>
         </base-card>
       </router-link>
