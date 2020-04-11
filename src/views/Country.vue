@@ -16,7 +16,7 @@
         <base-card class="p-5 overflow-hidden">
           <div class="md:flex md:justify-between md:items-center mb-12">
             <h1 class="text-4xl font-gilroy mb-4">{{upperFirst(country)}}</h1>
-            <img :src="countryData.countryInfo.flag" class="shadow-lg" alt />
+            <img :src="countryData.countryInfo.flag" class="shadow-lg rounded-lg" alt />
           </div>
           <div class="flex justify-between border-b mb-12">
             <span>Total Cases</span>
@@ -43,6 +43,10 @@
           <div class="flex justify-between border-b mb-12">
             <span>Total Recovered</span>
             <span>{{ countryData.recovered }}</span>
+          </div>
+          <div class="flex justify-between border-b mb-12">
+            <span>Total Tests</span>
+            <span>{{ countryData.tests }}</span>
           </div>
           <div class="flex justify-between border-b mb-12">
             <span>Critical Condition</span>

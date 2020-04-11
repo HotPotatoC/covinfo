@@ -16,7 +16,7 @@
         <div class="lg:hidden block">
           <button
             :class="{'is-active': isOpened}"
-            class="hamburger hamburger--squeeze"
+            class="hamburger hamburger--squeeze hover:bg-gray-300 rounded-full"
             type="button"
             @click="isOpened = !isOpened"
           >
@@ -35,7 +35,7 @@
             <ul class="lg:flex items-center justify-between font-medium pt-4 lg:pt-0">
               <li v-for="(link, index) in links" :key="index">
                 <router-link
-                  class="font-aileron lg:text-base tracking-tight text-xl lg:text-gray-800 py-4 px-6 block hover:text-green-500 rounded-lg"
+                  class="nav-link font-aileron lg:text-base tracking-tight text-xl lg:text-gray-800 py-4 px-6 block rounded-lg"
                   :to="link.to"
                 >
                   {{
@@ -73,6 +73,12 @@ export default {
 .rounded-bottom {
   border-bottom-right-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
+}
+.nav-link {
+  &:hover {
+    color: #00c853;
+  }
+  transition: 0.15s;
 }
 </style>
 

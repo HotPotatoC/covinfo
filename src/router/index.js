@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MainLayout from '../layouts/MainLayout.vue'
 
+import About from '../views/About.vue'
+
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -24,7 +26,7 @@ const router = new VueRouter({
         {
           path: '/about',
           name: 'About Page',
-          component: () => import('../views/About')
+          component: About
         },
         {
           path: '/countries',
