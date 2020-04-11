@@ -32,7 +32,6 @@ export default {
   },
   async created() {
     await this.getAllCountries();
-    this.ready = true;
   },
   methods: {
     async getAllCountries() {
@@ -42,6 +41,8 @@ export default {
         this.countries = data;
       } catch (error) {
         console.error(error);
+      } finally {
+        this.ready = true;
       }
     }
   }

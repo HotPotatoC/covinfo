@@ -121,9 +121,10 @@ export default {
         const { data } = await allCases();
 
         this.covidCases = data;
-        this.covidCases.ready = true;
       } catch (error) {
         console.error(error);
+      } finally {
+        this.covidCases.ready = true;
       }
     },
     async getAllCountries() {
