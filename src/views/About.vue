@@ -11,7 +11,7 @@
       </div>
       <div class="text-center mt-12">
         <router-link to="/">
-          <base-button size="md">CHECK IT OUT</base-button>
+          <base-button size="md" class="text-white">CHECK IT OUT</base-button>
         </router-link>
       </div>
     </div>
@@ -29,7 +29,7 @@
         >worldometers</a> website through a public REST API server which covinfo uses.
       </h2>
       <a href="https://github.com/novelcovid/api" target="_blank">
-        <base-button size="md" type="primary" class="mt-5 lg:mt-12">CHECK THE API</base-button>
+        <base-button size="md" type="primary" class="mt-5 lg:mt-12 text-white">CHECK THE API</base-button>
       </a>
     </div>
     <div class="w-full md:w-1/2 mt-5 md:mt-12 text-left">

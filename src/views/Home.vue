@@ -63,7 +63,7 @@
                 <router-link
                   exact
                   :to="'/country/' + row.country.toLowerCase()"
-                  class="text-blue-700"
+                  class="text-blue-700 underline"
                 >{{ row.country }}</router-link>
               </td>
               <td class="border-b px-4 py-2">{{ row.cases.toLocaleString() }}</td>
@@ -128,7 +128,7 @@ export default {
     },
     async getAllCountries() {
       try {
-        const { data } = await allCountries();
+        const { data } = await allCountries({ sort: "cases" });
 
         this.countriesData = data;
       } catch (error) {

@@ -1,5 +1,11 @@
 <template>
-  <button :class="setupClasses()" class="font-gilroy text-white rounded-lg">
+  <button
+    :class="btnClasses"
+    :style="hoverStyle"
+    @mouseenter="setHover(true)"
+    @mouseleave="setHover(false)"
+    class="font-gilroy rounded-lg"
+  >
     <slot></slot>
   </button>
 </template>
@@ -17,8 +23,18 @@ export default {
       default: "primary"
     }
   },
+  data() {
+    return {
+      hoverState: false
+    };
+  },
   methods: {
-    setupClasses() {
+    setHover(state) {
+      this.hoverState = state;
+    }
+  },
+  computed: {
+    btnClasses() {
       let classes = [
         {
           "px-12 py-3": this.size == "base",
@@ -28,16 +44,36 @@ export default {
       ];
 
       return classes;
+    },
+    hoverStyle: function() {
+      let hovered = "";
+
+      switch (this.type) {
+        case "primary":
+          hovered = "#1fbb60";
+          break;
+        case "primary-light":
+          hovered = "#a2ddb3";
+          break;
+
+        default:
+          break;
+      }
+
+      if (this.hoverState) {
+        return {
+          backgroundColor: hovered
+        };
+      }
+
+      return "";
     }
   }
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 button {
-  &:hover {
-    background: #1fbb60;
-  }
   transition: 0.25s;
 }
 </style>

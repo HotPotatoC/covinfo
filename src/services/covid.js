@@ -7,16 +7,16 @@ export function allCases() {
     .catch(err => Promise.reject(err));
 }
 
-export function allCountries() {
+export function allCountries(params = {}) {
   return request
-    .get("/countries")
+    .get("/v2/countries", {params})
     .then(response => response)
     .catch(err => Promise.reject(err));
 }
 
 export function getCountry(country) {
   return request
-    .get("/countries/" + country)
+    .get("/v2/countries/" + country)
     .then(response => response)
     .catch(err => Promise.reject(err));
 }

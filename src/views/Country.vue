@@ -105,6 +105,11 @@ export default {
               data: []
             },
             {
+              label: "Total Recovered",
+              borderColor: "#00C853",
+              data: []
+            },
+            {
               label: "Total Deaths",
               borderColor: "#2D3748",
               data: []
@@ -135,8 +140,14 @@ export default {
         );
       }
 
-      for (let timeline in val.timeline.deaths) {
+      for (let timeline in val.timeline.recovered) {
         this.lineDemographic.chartData.datasets[1].data.push(
+          val.timeline.recovered[timeline]
+        );
+      }
+
+      for (let timeline in val.timeline.deaths) {
+        this.lineDemographic.chartData.datasets[2].data.push(
           val.timeline.deaths[timeline]
         );
       }
