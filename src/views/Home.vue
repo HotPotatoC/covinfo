@@ -1,40 +1,51 @@
 <template>
   <div class="flex flex-wrap mt-12">
     <div class="w-full">
-      <h1 class="font-gilroy text-xl md:text-4xl text-center">Worldwide COVID-19 Cases (WIP)</h1>
+      <h1 class="font-gilroy text-xl md:text-4xl text-center">Worldwide COVID-19 Cases</h1>
     </div>
     <div class="w-full mb-12" v-if="covidCases.ready">
       <p
         class="text-center text-gray-600"
       >Last updated: {{covidCases.updated | moment("dddd, MMMM Do YYYY, h:mm:ss a")}}</p>
     </div>
-    <div class="w-full xl:w-1/3">
+    <div class="w-full xl:w-1/4">
       <base-card type="warning-light" outline-type="warning">
-        <div class="font-bold font-gilroy text-gray-700 uppercase text-xl mb-2">Total Cases</div>
+        <div class="font-bold font-gilroy text-gray-700 uppercase text-xl mb-2">Cases</div>
         <div class="font-bold font-aileron text-gray-800 mb-2" v-if="covidCases.ready">
-          <span class="text-2xl md:text-6xl">{{covidCases.cases.toLocaleString()}}</span>
+          <span class="text-2xl md:text-5xl">{{covidCases.cases.toLocaleString()}}</span>
         </div>
         <div class="font-bold font-aileron text-gray-800 mb-2" v-else>
           <base-loading></base-loading>
         </div>
       </base-card>
     </div>
-    <div class="w-full xl:w-1/3">
+    <div class="w-full xl:w-1/4">
+      <base-card type="warning-light" outline-type="warning">
+        <div class="font-bold font-gilroy text-gray-700 uppercase text-xl mb-2">Active Cases</div>
+        <div class="font-bold font-aileron text-gray-800 mb-2" v-if="covidCases.ready">
+          <span class="text-2xl md:text-5xl">{{covidCases.active.toLocaleString()}}</span>
+        </div>
+        <div class="font-bold font-aileron text-gray-800 mb-2" v-else>
+          <base-loading></base-loading>
+        </div>
+      </base-card>
+    </div>
+    <div class="w-full xl:w-1/4">
       <base-card type="primary-light" outline-type="primary">
         <div class="font-bold font-gilroy text-gray-700 uppercase text-xl mb-2">Recovered</div>
         <div class="font-bold font-aileron text-gray-800 mb-2" v-if="covidCases.ready">
-          <span class="text-2xl md:text-6xl">{{covidCases.recovered.toLocaleString()}}</span>
+          <span class="text-2xl md:text-5xl">{{covidCases.recovered.toLocaleString()}}</span>
         </div>
         <div class="font-bold font-aileron text-gray-800 mb-2" v-else>
           <base-loading></base-loading>
         </div>
       </base-card>
     </div>
-    <div class="w-full xl:w-1/3">
+    <div class="w-full xl:w-1/4">
       <base-card type="gray-400" outline-type="gray-600">
         <div class="font-bold font-gilroy text-gray-700 uppercase text-xl mb-2">Deaths</div>
         <div class="font-bold font-aileron text-gray-800 mb-2" v-if="covidCases.ready">
-          <span class="text-2xl md:text-6xl">{{covidCases.deaths.toLocaleString()}}</span>
+          <span class="text-2xl md:text-5xl">{{covidCases.deaths.toLocaleString()}}</span>
         </div>
         <div class="font-bold font-aileron text-gray-800 mb-2" v-else>
           <base-loading></base-loading>
@@ -47,14 +58,15 @@
         <table class="min-w-full leading-normal" v-if="covidCases.ready">
           <thead>
             <tr>
-              <th class="sticky top-0 px-4 py-3 bg-white">Country</th>
-              <th class="sticky top-0 px-4 py-3 bg-white">Total Cases</th>
-              <th class="sticky top-0 px-4 py-3 bg-white">Active Cases</th>
-              <th class="sticky top-0 px-4 py-3 bg-white">New Cases Today</th>
-              <th class="sticky top-0 px-4 py-3 bg-white">Total Deaths</th>
-              <th class="sticky top-0 px-4 py-3 bg-white">New Deaths</th>
-              <th class="sticky top-0 px-4 py-3 bg-white">Total Recovered</th>
-              <th class="sticky top-0 px-4 py-3 bg-white">Total Critical</th>
+              <th class="sticky top-0 px-2 py-1 lg:px-4 lg:py-3 bg-white">Country</th>
+              <th class="sticky top-0 px-2 py-1 lg:px-4 lg:py-3 bg-white">Total Cases</th>
+              <th class="sticky top-0 px-2 py-1 lg:px-4 lg:py-3 bg-white">Active Cases</th>
+              <th class="sticky top-0 px-2 py-1 lg:px-4 lg:py-3 bg-white">New Cases Today</th>
+              <th class="sticky top-0 px-2 py-1 lg:px-4 lg:py-3 bg-white">Total Deaths</th>
+              <th class="sticky top-0 px-2 py-1 lg:px-4 lg:py-3 bg-white">New Deaths</th>
+              <th class="sticky top-0 px-2 py-1 lg:px-4 lg:py-3 bg-white">Total Recovered</th>
+              <th class="sticky top-0 px-2 py-1 lg:px-4 lg:py-3 bg-white">Total Tests</th>
+              <th class="sticky top-0 px-2 py-1 lg:px-4 lg:py-3 bg-white">Total Critical</th>
             </tr>
           </thead>
           <tbody>
@@ -82,6 +94,7 @@
               >{{ row.todayDeaths.toLocaleString() }}</td>
 
               <td class="border-b px-4 py-2 text-primary">{{ row.recovered.toLocaleString() }}</td>
+              <td class="border-b px-4 py-2">{{ row.tests.toLocaleString() }}</td>
               <td class="border-b px-4 py-2 text-danger">{{ row.critical.toLocaleString() }}</td>
             </tr>
           </tbody>
