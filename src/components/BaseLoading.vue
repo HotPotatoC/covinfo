@@ -8,13 +8,7 @@
 
 <script>
 export default {
-  name: "base-loading",
-  props: {
-    color: {
-      type: String,
-      required: true
-    }
-  }
+  name: "base-loading"
 };
 </script>
 

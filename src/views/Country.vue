@@ -156,7 +156,6 @@ export default {
   async created() {
     await this.getCountryData();
     await this.getHistoricalCountryData();
-    this.ready = true;
   },
   methods: {
     async getCountryData() {
@@ -175,6 +174,8 @@ export default {
         this.countryHistoricalData = data;
       } catch (error) {
         console.error(error);
+      } finally {
+        this.ready = true;
       }
     },
     upperFirst(string) {
