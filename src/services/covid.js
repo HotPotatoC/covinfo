@@ -2,7 +2,7 @@ import request from "./api";
 
 export function allCases() {
   return request
-    .get("/all")
+    .get("/v2/all")
     .then(response => response)
     .catch(err => Promise.reject(err));
 }
