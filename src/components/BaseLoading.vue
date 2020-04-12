@@ -25,7 +25,7 @@ export default {
   position: absolute;
   width: 60px;
   height: 60px;
-  border: 10px solid #2d3748;
+  border: 8px solid #2d3748;
   border-top-color: transparent;
   border-radius: 50%;
 }
