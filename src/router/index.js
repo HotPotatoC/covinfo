@@ -34,11 +34,6 @@ const router = new VueRouter({
           component: () => import('../views/Countries.vue')
         },
         {
-          path: '/livemap',
-          name: 'Live Map',
-          component: () => import('../views/LiveMap.vue')
-        },
-        {
           path: '/country/:country',
           name: 'Country Info',
           props: true,

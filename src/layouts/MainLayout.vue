@@ -31,9 +31,9 @@ export default {
     return {
       nav: {
         links: [
+          { label: "Home", to: "/" },
           { label: "About", to: "/about" },
-          { label: "Countries", to: "/countries" },
-          { label: "Live Map (WIP)", to: "/livemap" }
+          { label: "Countries", to: "/countries" }
         ]
       }
     };
