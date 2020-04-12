@@ -9,7 +9,7 @@
       >Last updated: {{covidCases.updated | moment("dddd, MMMM Do YYYY, h:mm:ss a")}}</p>
     </div>
     <div class="w-full xl:w-1/4">
-      <base-card type="warning-light" outline-type="warning">
+      <base-card type="danger-light" outline-type="danger">
         <div class="font-bold font-gilroy text-gray-700 uppercase text-xl mb-2">Cases</div>
         <div class="font-bold font-aileron text-gray-800 mb-2" v-if="covidCases.ready">
           <span class="text-2xl md:text-5xl">{{covidCases.cases.toLocaleString()}}</span>
