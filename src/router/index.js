@@ -29,6 +29,11 @@ const router = new VueRouter({
           component: About
         },
         {
+          path: '/newnormal',
+          name: 'New Normal',
+          component: () => import('../views/NewNormal.vue')
+        },
+        {
           path: '/countries',
           name: 'Countries',
           component: () => import('../views/Countries.vue')

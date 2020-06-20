@@ -1,7 +1,7 @@
 <template>
   <div class="main-wrapper">
     <Navbar :links="nav.links" />
-    <div class="container mx-auto antialiased">
+    <div class="container mx-auto antialiased px-6">
       <div class="main-content font-aileron">
         <div class="w-full">
           <slide-y-up-transition :duration="200" origin="center top" mode="out-in">
@@ -32,6 +32,7 @@ export default {
       nav: {
         links: [
           { label: "Home", to: "/" },
+          { label: "New Normal", to: "/newnormal" },
           { label: "About", to: "/about" },
           { label: "Countries", to: "/countries" }
         ]
