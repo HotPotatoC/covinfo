@@ -95,7 +95,7 @@
       >Dengan dimulainya tahun akademik baru di bulan Juli, para pendidik dan pembuat kebijakan harus siap menghadapi norma baru untuk 44 plus juta siswa di seluruh negeri.</p>
       <img src="@/assets/images/2020_06_12_97539_1591938161._large.jpg" alt />
       <small class="text-gray-600">
-        Orang-orang menjaga jarak ketika mereka berbelanja selama penguncian yang dilakukan oleh pemerintah di tengah kekhawatiran tentang coronavirus di Kathmandu, Nepal pada 2 April 2020. The REUTERS / Navesh Chitrakar
+        Operator yang berdiri di ruang online PPDB di SMPN 60, Jakarta, Kamis, 11 Juni 2020. sekolah negeri akan memulai seleksi siswa baru mulai 15 Juni 2020 dengan sistem online. (JP / Seto Wardhana)
         <a
           href="https://www.thejakartapost.com/academia/2020/06/20/the-new-normal-in-education.html"
           target="__blank"
